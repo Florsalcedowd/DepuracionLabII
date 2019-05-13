@@ -9,13 +9,81 @@ package ejercicio3;
  *
  * @author flocy
  */
+
+class A{
+    public void algo0(int a){
+        a++;
+        algo1(a);
+    }
+    
+    public void algo1 (int a){
+        a++;
+        E e= new E();
+        e.termina(a);
+    }
+}
+
+class B {
+    int m;
+    public void algo0(int a){
+        a++;
+        algo1(a);
+    }
+    
+    public void algo1 (int a){
+        a++;
+        A obja = new A();
+        obja.algo0(a);
+        m= 9;
+    }
+}
+
+class C{
+    public void algo0(int a){
+        a++;
+        algo1(a);
+    }
+    
+    public void algo1 (int a){
+        a++;
+        B objB = new B();
+        objB.algo0(a);
+    }
+}
+
+class D{
+    public void algo0(int a){
+        a++;
+        algo1(a);
+    }
+    
+    public void algo1 (int a){
+        a++;
+        C objC = new C();
+        objC.algo0(a);
+    }
+}
+
+class E{
+    public void termina (int a){
+        int acu=0;
+        for (int i = 0; i < 1000; i++) {
+            acu = acu+i;
+            if (i==500) {
+                System.out.println(acu);
+            }
+        }
+    }
+}
+
 public class Ejercicio3 {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        // TODO code application logic here
+        int a= 0;
+        a= 1;
+        B b = new B();
+        b.algo0(10);
+        System.out.println("Termino");
     }
     
 }
